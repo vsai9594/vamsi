@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <title>Django website</title>
+    {% include "snippets/css.html" %}
+<script>
+function add() {
+    var a, b, c, d;
+    a = Number(document.getElementById("room").value);
+    b = Number(document.getElementById("lsat").value);
+    c = Number(document.getElementById("ptr").value);
+    d = a + b + c;
+       document.getElementById("answer").innerHTML=d ;
+
+
+}
+</script>
+</head>
+<body>
+<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card1-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Prediction of selling price of house</h2>
+                    <form >
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="No of rooms"  id="room">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="% lower status population"  id="lsat">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="pupil-teacher ratio"  id="ptr">
+                        </div>
+                        <div class="p-t-20">
+                            <input type="submit" value="Predict selling Price" class="btn btn--radius btn--green"  onclick="add();return false;"/><br><br>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="input-group">
+                            <label>Predicted price is:</label>
+                            <span class="input--style-1" id="answer"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
