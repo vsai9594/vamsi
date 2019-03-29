@@ -1,16 +1,47 @@
-<!doctype html>
+<!Doctype html>
 <html>
 <head>
     <title>Django website</title>
     {% include "snippets/css.html" %}
 <script>
 function add() {
-    var a, b, c, d;
-    a = Number(document.getElementById("room").value);
-    b = Number(document.getElementById("lsat").value);
-    c = Number(document.getElementById("ptr").value);
-    d = a + b + c;
-       document.getElementById("answer").innerHTML=d ;
+    var a, b, c, d,e,f,g,h,i;
+    a = Number(document.getElementById("quality").value);
+    b = Number(document.getElementById("living_area").value);
+    c = Number(document.getElementById("car_size").value);
+    d = Number(document.getElementById("garage_area").value);
+    e = Number(document.getElementById("first_floor_area").value);
+    f = Number(document.getElementById("bathroom").value);
+    g = Number(document.getElementById("rooms").value);
+    h = Number(document.getElementById("year").value);
+  if (a == "") {
+    alert("Quality Field must be filled out");
+    return false;
+  }
+  if (b == "") {
+    alert("Living area field must be filled out");
+    return false;
+  }if (c == "") {
+    alert("car capacity  must be filled out");
+    return false;
+  }if (d == "") {
+    alert("basement area must be filled out");
+    return false;
+  }if (e == "") {
+    alert("First floor field must be filled out");
+    return false;
+  }if (f == "") {
+    alert("bathroom must be filled out");
+    return false;
+  }if (g == "") {
+    alert("Total rooms Field must be filled out");
+    return false;
+  }if (h == "") {
+    alert("year built Field must be filled out");
+    return false;
+  }
+    i = a + b + c + d + e + f + g + h;
+       document.getElementById("answer").innerHTML=i ;
 
 
 }
@@ -23,18 +54,34 @@ function add() {
                 <div class="card1-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Prediction of selling price of house</h2>
-                    <form >
+                    <form name="myForm">
                         <div class="input-group">
-                            <input class="input--style-1" type="number" required="required" placeholder="No of rooms"  id="room">
+                            <input class="input--style-1" type="number" required="required" placeholder="Overall Qual(1 = Very Poor, 10 = Very Excellent)" name="quality" id="quality">
+                            <span id="Quality"></span>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="number" required="required" placeholder="% lower status population"  id="lsat">
+                            <input class="input--style-1" type="number" required="required" placeholder="living area square feet" name="living_area" id="living_area">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="number" required="required" placeholder="pupil-teacher ratio"  id="ptr">
+                            <input class="input--style-1" type="number" required="required" placeholder="Size of garage in car capacity" name="car_size" id="car_size">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="Total square feet of basement area" name="garage_area" id="garage_area">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="First Floor square feet" name="first_floor_area" id="first_floor_area">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="Full bathrooms above grade" name="bathroom" id="bathroom">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="Total rooms above grade " name="rooms" id="rooms">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" required="required" placeholder="Year Built"  id="year">
                         </div>
                         <div class="p-t-20">
-                            <input type="submit" value="Predict selling Price" class="btn btn--radius btn--green"  onclick="add();return false;"/><br><br>
+                            <input type="submit" value="Predict selling Price" class="btn btn--radius btn--green"  onclick="add(); return false;"/><br><br>
                         </div>
                         <br>
                         <br>
