@@ -1,0 +1,8 @@
+hi.py
+setup.py
+vamsi.egg-info/PKG-INFO
+vamsi.egg-info/SOURCES.txt
+vamsi.egg-info/dependency_links.txt
+vamsi.egg-info/namespace_packages.txt
+vamsi.egg-info/top_level.txt
+vamsi.egg-info/zip-safe
