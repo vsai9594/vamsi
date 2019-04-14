@@ -2,49 +2,14 @@
 <html>
 <head>
     <title>Django website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     {% include "snippets/css.html" %}
 <script>
-function add() {
-    var a, b, c, d,e,f,g,h,i;
-    a = Number(document.getElementById("quality").value);
-    b = Number(document.getElementById("living_area").value);
-    c = Number(document.getElementById("car_size").value);
-    d = Number(document.getElementById("garage_area").value);
-    e = Number(document.getElementById("first_floor_area").value);
-    f = Number(document.getElementById("bathroom").value);
-    g = Number(document.getElementById("rooms").value);
-    h = Number(document.getElementById("year").value);
-  if (a == "") {
-    alert("Quality Field must be filled out");
-    return false;
-  }
-  if (b == "") {
-    alert("Living area field must be filled out");
-    return false;
-  }if (c == "") {
-    alert("car capacity  must be filled out");
-    return false;
-  }if (d == "") {
-    alert("basement area must be filled out");
-    return false;
-  }if (e == "") {
-    alert("First floor field must be filled out");
-    return false;
-  }if (f == "") {
-    alert("bathroom must be filled out");
-    return false;
-  }if (g == "") {
-    alert("Total rooms Field must be filled out");
-    return false;
-  }if (h == "") {
-    alert("year built Field must be filled out");
-    return false;
-  }
-    i = a + b + c + d + e + f + g + h;
-       document.getElementById("answer").innerHTML=i ;
 
-
-}
 </script>
 </head>
 <body>
@@ -54,7 +19,7 @@ function add() {
                 <div class="card1-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Prediction of selling price of house</h2>
-                    <form name="myForm">
+                    <form action="getPredection" method="post">
                         <div class="input-group">
                             <input class="input--style-1" type="number" required="required" placeholder="Overall Qual(1 = Very Poor, 10 = Very Excellent)" name="quality" id="quality">
                             <span id="Quality"></span>
@@ -78,16 +43,19 @@ function add() {
                             <input class="input--style-1" type="number" required="required" placeholder="Total rooms above grade " name="rooms" id="rooms">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="number" required="required" placeholder="Year Built"  id="year">
+                            <input class="input--style-1" type="number" required="required" placeholder="Year Built"  name="year" id="year">
                         </div>
                         <div class="p-t-20">
-                            <input type="submit" value="Predict selling Price" class="btn btn--radius btn--green"  onclick="add(); return false;"/><br><br>
+                            <input type="submit" value="Predict selling price" class="btn btn--radius btn--green"  onclick="add(); return false;"/><br><br>
                         </div>
                         <br>
                         <br>
+
                         <div class="input-group">
-                            <label>Predicted price is:</label>
-                            <span class="input--style-1" id="answer"></span>
+                            {% if results != False %}
+
+                            <label>Predicted price is:{{ results }}</label>
+                            {% endif %}
                         </div>
                     </form>
                 </div>
